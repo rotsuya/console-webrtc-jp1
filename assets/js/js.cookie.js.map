@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+
+    <head>
+
+        <meta charset="utf-8"/>        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        <meta name="description" content="">
+
+        <title>Error- A Simple and Flexible WebRTC Platform</title>
+
+        <link href="/favicon.ico" type="image/x-icon" rel="icon"/><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/><meta name="author"/>        
+	<link rel="stylesheet" href="/assets/css/dist/unauthorized_dashboard.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <link rel="canonical" href="https://webrtc.ecl.ntt.com/en">
+        <link rel="alternate" type="application/rss+xml" title="ECLWebRTC - Enterprise Cloud WebRTC Platform"
+        href="https://webrtc.ecl.ntt.com/en/feed.xml">
+        <script id="jsmsg_notGotPeerList" class="type=danger" type="text/x-jsrender">
+Failed to get PeerID List.</script>
+<script id="jsmsg_notExistPeeridText" class="type=danger" type="text/x-jsrender">
+No peers connected</script>
+<script id="jsmsg_failedChangeStatus" class="type=danger" type="text/x-jsrender">
+Failed to change application status.</script>
+<script id="jsmsg_suspended_btn" class="" type="text/x-jsrender">
+Suspend</script>
+<script id="jsmsg_active_btn" class="" type="text/x-jsrender">
+Resume</script>
+<script id="jsmsg_suspended" class="" type="text/x-jsrender">
+suspended</script>
+<script id="jsmsg_active" class="" type="text/x-jsrender">
+active</script>
+<script id="jsmsg_statusChanged" class="type=info" type="text/x-jsrender">
+Application status changed successfully.</script>
+<script id="jsmsg_failedGetSecretkey" class="type=danger" type="text/x-jsrender">
+Failed to get secretkey.</script>
+<script id="jsmsg_hideSecretkey" class="" type="text/x-jsrender">
+Hide Secret Key</script>
+<script id="jsmsg_showSecretkey" class="" type="text/x-jsrender">
+Show Secret Key</script>
+<script id="jsmsg_failedRegenerateSecretkey" class="type=danger" type="text/x-jsrender">
+Failed to regenerate secretkey.</script>
+<script id="jsmsg_setNewSecretkey" class="type=info" type="text/x-jsrender">
+We have set regenerated secret key.</script>
+<script id="jsmsg_failedDeleteApp" class="type=danger" type="text/x-jsrender">
+Failed to delete application.</script>
+<script id="jsmsg_no_mail_info_falied" class="type=danger delay=5000" type="text/x-jsrender">
+Failed to update user infomation.</script>
+<script id="jsmsg_mail_failed_info_failed" class="type=danger delay=5000" type="text/x-jsrender">
+Failed to apply for update of e-mail address.<br>Failed to update user infomation.</script>
+<script id="jsmsg_mail_success_info_failed" class="type=danger delay=5000" type="text/x-jsrender">
+We have sent you an email to validate your email.<br>Failed to update the name and/or email address.</script>
+<script id="jsmsg_no_mail_info_success" class="type=success delay=5000" type="text/x-jsrender">
+Updated user infomation successfully.</script>
+<script id="jsmsg_mail_failed_info_success" class="type=danger delay=5000" type="text/x-jsrender">
+Failed to apply for update of e-mail address.<br>Name and/or email address was successfully updated.</script>
+<script id="jsmsg_mail_seccess_info_success" class="type=success delay=5000" type="text/x-jsrender">
+We have sent you an email to validate your email.<br>Name and/or email addresswas successfully updated.</script>
+
+<script id="jsmsg_validation_required_name" class="" type="text/x-jsrender">
+Please enter Name.</script>
+<script id="jsmsg_validation_required_email" class="" type="text/x-jsrender">
+Please enter Email.</script>
+<script id="jsmsg_validation_required_password" class="" type="text/x-jsrender">
+Please enter Password.</script>
+<script id="jsmsg_validation_minSize_before" class="" type="text/x-jsrender">
+＊Please enter </script>
+<script id="jsmsg_validation_maxSize_before" class="" type="text/x-jsrender">
+＊Please enter </script>
+<script id="jsmsg_validation_equals" class="" type="text/x-jsrender">
+Does not match.</script>
+<script id="jsmsg_validation_regex_password" class="" type="text/x-jsrender">
+Does not match the password rules.</script>
+<script id="jsmsg_validation_regex_email" class="" type="text/x-jsrender">
+Does not match the email rules.</script>
+<script id="jsmsg_validation_regex_domain" class="" type="text/x-jsrender">
+Does not match the domains rules.</script>
+
+<script id="jsmsg_unexpected_return" class="type=danger delay=5000" type="text/x-jsrender">
+Failed to get request result.<br>Please reload this page.</script>
+<script id="jsmsg_validation_minSize_after" class="" type="text/x-jsrender">
+characters or more.</script>
+<script id="jsmsg_validation_maxSize_after" class="" type="text/x-jsrender">
+characters or less.</script>
+
+<script id="jsmsg_failedConnectServer" class="type=danger delay=5000" type="text/x-jsrender">
+Failed to connect server.</script>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        
+	<script src="/assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/jsrender.min.js"></script>
+	<script src="/assets/js/jquery.validationEngine.js"></script>
+	<script src="/assets/js/jquery.validationEngine-ja.js"></script>
+	<script src="/assets/js/js.cookie.js"></script>
+	<script src="/assets/js/dashboard.js"></script>
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-46095916-2', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+
+    <body class="Assets js" >
+    <div id="wrap">    <div id="toSetSubAlert" class="hidden">
+		    </div>
+    
+<section class="no-slide">
+	<div class ="container">
+		<h3 class="formH3">404 - Page Not Found</h3>
+		<p class="p-center">Can not find the specified page.		<p class="p-center">If the problem persists, please contact the WebRTC Platform support team.		<div class="submit">
+				</div>
+	</div>
+</section></div>        <!-- JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script>
+            var CONST = {};
+            CONST.LANG = 'en';
+        </script>
+        <script src="/assets/js/script.js"></script>
+
+    </body>
+</html>

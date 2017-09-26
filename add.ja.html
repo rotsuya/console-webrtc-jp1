@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8"/>        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+    <meta name="description" content="">
+
+    <title>アプリケーション作成 - WebRTCを簡単&柔軟に使えるプラットフォーム</title>
+
+    <link href="/favicon.ico" type="image/x-icon" rel="icon"/><link href="/favicon.ico" type="image/x-icon" rel="shortcut icon"/><meta name="author"/>
+    <link rel="stylesheet" href="/assets/css/dist/authorized_dashboard.css"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Enterprise Cloud WebRTC Platform - ECLWebRTC"
+          href="https://webrtc.ecl.ntt.com/feed.xml">
+
+    <script id="jsmsg_notGotPeerList" class="type=danger" type="text/x-jsrender">
+接続中PeerID一覧の取得に失敗しました。</script>
+    <script id="jsmsg_notExistPeeridText" class="type=danger" type="text/x-jsrender">
+接続中のPeerIDはありません。</script>
+    <script id="jsmsg_failedChangeStatus" class="type=danger" type="text/x-jsrender">
+アプリケーションのステータス変更に失敗しました。</script>
+    <script id="jsmsg_suspended_btn" class="" type="text/x-jsrender">
+一時停止</script>
+    <script id="jsmsg_active_btn" class="" type="text/x-jsrender">
+利用再開</script>
+    <script id="jsmsg_suspended" class="" type="text/x-jsrender">
+停止中</script>
+    <script id="jsmsg_active" class="" type="text/x-jsrender">
+利用中</script>
+    <script id="jsmsg_statusChanged" class="type=info" type="text/x-jsrender">
+アプリケーションのステータスを変更しました。</script>
+    <script id="jsmsg_failedGetSecretkey" class="type=danger" type="text/x-jsrender">
+シークレットキーの取得に失敗しました。</script>
+    <script id="jsmsg_hideSecretkey" class="" type="text/x-jsrender">
+シークレットキーを隠す</script>
+    <script id="jsmsg_showSecretkey" class="" type="text/x-jsrender">
+シークレットキーを表示する</script>
+    <script id="jsmsg_failedRegenerateSecretkey" class="type=danger" type="text/x-jsrender">
+シークレットキーの再生成に失敗しました。</script>
+    <script id="jsmsg_setNewSecretkey" class="type=info" type="text/x-jsrender">
+再生成したシークレットキーを設定しました。</script>
+    <script id="jsmsg_failedDeleteApp" class="type=danger" type="text/x-jsrender">
+アプリケーションの削除に失敗しました。</script>
+    <script id="jsmsg_no_mail_info_falied" class="type=danger delay=5000" type="text/x-jsrender">
+ユーザ情報の更新に失敗しました。</script>
+    <script id="jsmsg_mail_failed_info_failed" class="type=danger delay=5000" type="text/x-jsrender">
+メールアドレスの変更申込みに失敗しました。<br>名前/パスワードの更新に失敗しました。</script>
+    <script id="jsmsg_mail_success_info_failed" class="type=danger delay=5000" type="text/x-jsrender">
+メールアドレス変更確認メールを送信しました。<br>名前/パスワードの更新に失敗しました。</script>
+    <script id="jsmsg_no_mail_info_success" class="type=success delay=5000" type="text/x-jsrender">
+ユーザ情報を更新しました。</script>
+    <script id="jsmsg_mail_failed_info_success" class="type=danger delay=5000" type="text/x-jsrender">
+メールアドレスの変更申込みに失敗しました。<br>名前/パスワードを更新しました。</script>
+    <script id="jsmsg_mail_seccess_info_success" class="type=success delay=5000" type="text/x-jsrender">
+メールアドレス変更確認メールを送信しました。<br>名前/パスワードを更新しました。</script>
+
+    <script id="jsmsg_validation_required_name" class="" type="text/x-jsrender">
+お名前を入力してください。</script>
+    <script id="jsmsg_validation_required_email" class="" type="text/x-jsrender">
+メールアドレスを入力してください。</script>
+    <script id="jsmsg_validation_required_password" class="" type="text/x-jsrender">
+パスワードを入力してください。</script>
+    <script id="jsmsg_validation_minSize_before" class="" type="text/x-jsrender">
+＊</script>
+    <script id="jsmsg_validation_maxSize_before" class="" type="text/x-jsrender">
+＊</script>
+    <script id="jsmsg_validation_equals" class="" type="text/x-jsrender">
+入力内容が一致しません。</script>
+    <script id="jsmsg_validation_regex_password" class="" type="text/x-jsrender">
+パスワードがルールにマッチしません。</script>
+    <script id="jsmsg_validation_regex_email" class="" type="text/x-jsrender">
+メールアドレスがルールにマッチしません。</script>
+    <script id="jsmsg_validation_regex_domain" class="" type="text/x-jsrender">
+利用可能ドメイン名がルールにマッチしません。</script>
+
+    <script id="jsmsg_unexpected_return" class="type=danger delay=5000" type="text/x-jsrender">
+更新結果の取得に失敗しました。<br>ページを読み込みなおしてください。</script>
+    <script id="jsmsg_validation_minSize_after" class="" type="text/x-jsrender">
+文字以上で入力してください。</script>
+    <script id="jsmsg_validation_maxSize_after" class="" type="text/x-jsrender">
+文字以内で入力してください。</script>
+
+    <script id="jsmsg_failedConnectServer" class="type=danger delay=5000" type="text/x-jsrender">
+サーバーとの通信に失敗しました。</script>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jsrender.min.js"></script>
+    <script src="/assets/js/jquery.validationEngine.js"></script>
+    <script src="/assets/js/jquery.validationEngine-ja.js"></script>
+    <script src="/assets/js/js.cookie.js"></script>
+    <script src="/assets/js/dashboard.js"></script>
+
+    <script>
+        var sssGUIURL = "https://jp1.ecl.ntt.com"
+    </script>
+    <link rel="stylesheet" media="screen" href="https://jp1.ecl.ntt.com/gui/assets/css/sdp.css" />
+    <script src="https://jp1.ecl.ntt.com/gui/assets/js/sdp.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://jp1.ecl.ntt.com/gui/assets/img/favicon.png" />
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46095916-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</head>
+
+
+<body class="Apps add" >    <div id="wrap">
+    <div id="alertlow">
+        <div id="toSetSubAlert" class="hidden">
+        </div>
+        <div>
+            <div class="col-xs-12 col-sm-10 col-sm-offset-2 text-center jsAlert">
+                <div id="subAlert" class="">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="hidden-xs col-sm-2 sidebar" id="sidebar">
+            <!-- logo -->
+            <ul class="nav nav-sidebar">
+                <li id="logo">
+                    <a href="/">
+                        <img src="/assets/img/logo-enterprise-jp.svg" alt=""/>			</a>
+                </li>
+            </ul>
+            <!-- /logo -->
+            <nav>
+                <ul class="nav nav-sidebar">
+                    <li class="" id="apikeylist-nav-side"><a href="/" id="apikeylist-side"><span class="glyphicon glyphicon-list"></span>アプリケーション一覧</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="https://github.com/skyway/skyway-js-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-file"></span>JavaScript SDK (GitHub)</a></li>
+                    <li><a href="https://github.com/skyway/skyway-ios-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-download-alt"></span>iOS SDK (GitHub)</a></li>
+                    <li><a href="https://github.com/skyway/skyway-android-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-download-alt"></span>Android SDK (GitHub)</a></li>
+                    <li><a href="https://webrtc.ecl.ntt.com/developer.html" target="_blank"><span class="glyphicon glyphicon-book"></span>開発ドキュメント</a></li>
+                    <li><a href="http://webrtc.ecl.ntt.com/support.html" target="_blank"><span class="glyphicon glyphicon-comment"></span>FAQ / Technical Forum</a></li>
+                </ul>
+            </nav>
+        </div><div class="hidden-sm hidden-md hidden-lg col-xs-12" id="topmenu">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topbar-contents">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/img/logo-enterprise-jp.svg" alt=""/>            </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="topbar-contents">
+                <ul class="nav navbar-nav">
+                    <li class="" id="apikeylist-nav-side"><a href="/" id="apikeylist-side"><span class="glyphicon glyphicon-list"></span>アプリケーション一覧</a></li>
+                    <li><a href="https://github.com/skyway/skyway-js-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-file"></span>JavaScript SDK (GitHub)</a></li>
+                    <li><a href="https://github.com/skyway/skyway-ios-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-download-alt"></span>iOS SDK (GitHub)</a></li>
+                    <li><a href="https://github.com/skyway/skyway-android-sdk/releases/latest" target="_blank"><span class="glyphicon glyphicon-download-alt"></span>Android SDK (GitHub)</a></li>
+                    <li><a href="https://webrtc.ecl.ntt.com/developer.html" target="_blank"><span class="glyphicon glyphicon-book"></span>開発ドキュメント</a></li>
+                    <li><a href="http://webrtc.ecl.ntt.com/support.html" target="_blank"><span class="glyphicon glyphicon-comment"></span>FAQ / Technical Forum</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>			<div class="col-xs-12 col-sm-10 col-sm-offset-2 mainarea">
+        <div class="container">
+            <div class="form-group">
+                <div class="col-md-5">
+                    <h1>アプリケーション作成</h1>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="form-width-fix">
+                        <form method="post" accept-charset="utf-8" id="configAppForm" class="form-horizontal validationForm" role="form" action="/apps/add"><div style="display:none;"><input type="hidden" name="_method" value="POST"/><input type="hidden" name="_csrfToken" value="931ca157a7b4ff8382b3f9d0bed275a50160076ceae5957f2adc9c78ddc209f71b8c3de05091526187210bcc56e1c04d45797140573d9eecc20aa45ba2f451fc"/></div>				<div class="form-group">
+                            <!-- post form -->
+                            <!-- app description -->
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-7">
+                                    <div class='validation_result' id='app_description-validation-error'>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="col-md-4 control-label">
+                                アプリケーション説明文					</label>
+                            <div class="col-md-7">
+                                <div class="form-group text"><input type="text" name="app_description" id="app_description" maxlength="128" class="form-controlcol-md-7 validation_field validate[ maxSize[128],] form-control" data-prompt-target="app_description-validation-error" data-prompt-position="inline"/></div>					</div>
+                            <!-- domains -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">
+                                    利用可能ドメイン名						</label>
+                                <div class="col-md-7">
+                                    <div class='validation_result domain_validation' id='domain_1-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_1]" id="domain_1" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_1-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_2-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_2]" id="domain_2" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_2-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_3-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_3]" id="domain_3" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_3-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_4-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_4]" id="domain_4" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_4-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_5-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_5]" id="domain_5" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_5-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_6-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_6]" id="domain_6" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_6-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_7-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_7]" id="domain_7" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_7-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_8-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_8]" id="domain_8" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_8-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_9-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_9]" id="domain_9" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_9-validation-error" data-prompt-position="inline"/></div><div class='validation_result domain_validation' id='domain_10-validation-error'></div><div class="form-group text"><input type="text" name="domain[domain_10]" id="domain_10" maxlength="255" class="form-control validation_field validate[ maxSize[ custom[domain] 255],]" data-prompt-target="domain_10-validation-error" data-prompt-position="inline"/></div>お客様のアプリケーションを設置するWebサーバのドメイン名(FQDN)を入力してください。iOS/Androidのみで開発する場合は、任意の文字列を入力して下さい。						</div>
+                            </div>
+                            <!-- permissions -->
+                            <div class="form-group">
+                                <label class="col-md-4 checkbox-label control-label">
+                                    権限						</label>
+                                <div class="col-md-7">
+                                    <div class="permission_place">
+                                        <div class="form-group"><input type="hidden" name="permission[TURN]" value="0"/><input type="checkbox" name="permission[TURN]" value="1" id="turn" checked="checked"><label class="checkbox_label" for="turn">TURNを利用する</label></div><div class="form-group"><input type="hidden" name="permission[SFU]" value="0"/><input type="checkbox" name="permission[SFU]" value="1" id="sfu" checked="checked"><label class="checkbox_label" for="sfu">SFUを利用する</label></div><div class="form-group"><input type="hidden" name="permission[USER_LIST]" value="0"/><input type="checkbox" name="permission[USER_LIST]" value="1" id="userlist" checked="checked"><label class="checkbox_label" for="userlist">listAllPeers APIを利用する</label></div><div class="form-group"><input type="hidden" name="permission[PEER_AUTHENTICATION]" value="0"/><input type="checkbox" name="permission[PEER_AUTHENTICATION]" value="1" id="peer-authentication"><label class="checkbox_label" for="peer-authentication">APIキー認証を利用する</label></div>							</div>
+                                </div>
+                            </div>
+                            <!-- submit button -->
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="submit"><input type="submit" id="app_add.add_btn" class="btn-success col-xs-12 btn submit_btn" formnovalidate="formnovalidate" value="アプリケーションを作成する"/></div>						</div>
+                            </div>
+                            <!-- cancel button -->
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-7">
+                                    <a class="btn btn-warning cancel_btn col-xs-12" id="cancel_btn" href="/" >
+                                        キャンセル							</a>
+                                </div>
+                            </div>
+                            <div style="display:none;"><input type="hidden" name="_Token[fields]" value="82dc4e278c58305ab5c7fe18a59f274fdc62b80e%3A"/><input type="hidden" name="_Token[unlocked]" value=""/></div></form>				</div>
+                </div>
+            </div>
+        </div>
+    </div>			</div>
+</div>
+</div>
+</body>
+</html>
+
